@@ -42,6 +42,7 @@ RUN find /usr/lib/jvm/ -name "cacerts" -exec cp {} /tmp/kafka.client.truststore.
 
 
 ADD connect-distributed.properties /opt/connect-distributed.properties
+ADD connect-distributed-auth.properties /opt/connect-distributed-auth.properties
 
 
 RUN mv target/CustomMM2ReplicationPolicy-1.0-SNAPSHOT.jar /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION}/libs
