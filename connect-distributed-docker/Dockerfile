@@ -1,5 +1,7 @@
 FROM centos:latest
-
+RUN cd /etc/yum.repos.d/
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
 RUN yum install -y wget tar openssh-server openssh-clients sysstat sudo which openssl hostname
 RUN yum install -y java-1.8.0-openjdk-devel
 RUN yum install -y epel-release &&\
@@ -19,7 +21,7 @@ ENV M2 $M2_HOME/bin
 ENV PATH $M2:$PATH
 
 
-RUN wget https://bootstrap.pypa.io/get-pip.py
+RUN wget https://bootstrap.pypa.io/pip/3.6/get-pip.py
 RUN python3 get-pip.py
 RUN pip3 install awscli
 
