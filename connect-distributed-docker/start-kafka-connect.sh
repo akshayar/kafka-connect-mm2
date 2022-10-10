@@ -14,7 +14,7 @@ sed -i "s/PASSWORD/${PASSWORD}/g" /opt/connect-distributed.properties
 
 echo Starting Kafka connect
 
-cd /opt/kafka_2.13-2.7.0/bin
+cd /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION}/bin
 ./connect-distributed.sh /opt/connect-distributed.properties
 
 
